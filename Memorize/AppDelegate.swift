@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Memorize
 //
-//  Created by Clarence Wang on 2020/5/31.
+//  Created by Chen Wang on 2020/5/31.
 //  Copyright © 2020 Chen Wang. All rights reserved.
 //
 
