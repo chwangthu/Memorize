@@ -16,13 +16,14 @@ struct MemoryGame<CardContent> {
         print("card chosen: \(card)")
     }
     
-    init(numberOfPairsOfCards: Int, cardContentFactory: (Int) -> CardContent) {
+    init(numberOfPairsOfCards: Int, cardContentFactory: (Int) -> CardContent) { //initialize cards
         cards = Array<Card>()
         for pairIndex in 0..<numberOfPairsOfCards {
             let content = cardContentFactory(pairIndex)
             cards.append(Card(isFaceUp: true, isMatched: false, content: content, id: pairIndex*2))
             cards.append(Card(isFaceUp: true, isMatched: false, content: content, id: pairIndex*2+1))
         }
+        cards.shuffle()
     }
     
     struct Card: Identifiable {
