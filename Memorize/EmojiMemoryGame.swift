@@ -10,12 +10,12 @@ import Foundation
 
 //ViewModel: portal between views and model
 
-class EmojiMemoryGame {
+class EmojiMemoryGame: ObservableObject {
 //    private(set) var model: MemoryGame<String> =
 //        MemoryGame<String>(numberOfPairsOfCards: 2, cardContentFactory: { (pairIndex: Int) -> String in
 //        return "😀"
 //    })
-    private(set) var model: MemoryGame<String> = createMemoryGame()
+    @Published private(set) var model: MemoryGame<String> = createMemoryGame()
     
     static func createMemoryGame() -> MemoryGame<String> {
         let emojis: Array<String> = ["👻", "🎃", "🐰", "🦊", "🐧"]
