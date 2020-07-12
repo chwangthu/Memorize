@@ -13,11 +13,9 @@ import SwiftUI
 struct EmojiMemoryGameView: View { //EmojiMemoryGameView behaviors like a view
     @ObservedObject var viewModel: EmojiMemoryGame
     var body: some View {
-        return HStack(content: {
-            ForEach(viewModel.cards, content: { card in
-                CardView(card: card).onTapGesture(perform: { self.viewModel.choose(card: card) } ) //perform takes a function as an argument which needs no argument returns nothing
-            })
-        })
+        Grid(viewModel.cards) { card in
+            CardView(card: card).onTapGesture(perform: { self.viewModel.choose(card: card) } ).padding(5) //perform takes a function as an argument which needs no argument returns nothing
+            }
             .padding()
             .foregroundColor(Color.orange)
     }
@@ -38,10 +36,12 @@ struct CardView: View {
                 RoundedRectangle(cornerRadius: cornerRadius).stroke(lineWidth: edgeLineWidth)
                 Text(card.content)
             } else {
-                RoundedRectangle(cornerRadius: cornerRadius).fill()
+                if !card.isMatched {
+                    RoundedRectangle(cornerRadius: cornerRadius).fill()
+                }
             }
         }
-        .aspectRatio(0.67, contentMode: .fit)
+//        .aspectRatio(0.67, contentMode: .fit)
         .font(Font.system(size: fontSize(for: size)))
     }
     

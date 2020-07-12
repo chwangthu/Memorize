@@ -9,6 +9,7 @@
 import Foundation
 
 //ViewModel: portal between views and model
+//ViewModel is the argument for initializing View as well as creating model
 
 class EmojiMemoryGame: ObservableObject {
 //    private(set) var model: MemoryGame<String> =
